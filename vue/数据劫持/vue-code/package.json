@@ -1,0 +1,21 @@
+{
+  "name": "vue-code",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server",
+    "build": "webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.10.3",
+    "webpack-cli": "^4.2.0"
+  },
+  "dependencies": {
+    "html-webpack-plugin": "^4.5.0",
+    "webpack-dev-server": "4.0.0-beta.0"
+  }
+}

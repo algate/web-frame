@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<script>
+let vmData = {
+    data(){
+        return {
+            title: '数据劫持',
+            content: [
+                {
+                    name: 'defineProperty',
+                    content: 'getter和setter'
+                },
+                {
+                    name: '数据代理',
+                    content: '原理是使用defineProperty'
+                }
+            ]
+        }
+    }
+    /* data: {
+        title: '数据劫持',
+        content: [
+            {
+                name: 'defineProperty',
+                content: 'getter和setter'
+            },
+            {
+                name: '数据代理',
+                content: '原理是使用defineProperty'
+            }
+        ]
+    } */
+}
+
+function MVVM(options) {
+    this.$options = options || {};
+    var data = this._data = typeof this.$options.data === 'function' ? this.$options.data() : {};
+    var _vm = this;
+    this._proxyData = function(key) {
+        Object.defineProperty(vm, key, {
+            get() {
+                return _vm['_data'][key];
+            },
+            set(newVal) {
+                _vm['_data'][key] = newVal;
+            }
+        });
+    }
+    // 数据代理
+    // 实现 vm.xxx -> vm._data.xxx
+    Object.keys(data).forEach(function(key) {
+        _vm._proxyData(key);
+    });
+}
+let vm = new MVVM(vmData);
+
+// vm._data.title = vm.title; 
+/* 
+ * 1.把vm的data代理到vm上，不管vm的data是function,默认返回一个object||{}
+*/
+
+console.log(vm);
+console.log(vm.title);
+console.log(vm.content);
+</script>
