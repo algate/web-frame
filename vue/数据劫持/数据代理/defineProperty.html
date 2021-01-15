@@ -36,7 +36,7 @@ function MVVM(options) {
     var data = this._data = typeof this.$options.data === 'function' ? this.$options.data() : {};
     var _vm = this;
     this._proxyData = function(key) {
-        Object.defineProperty(vm, key, {
+        Object.defineProperty(_vm, key, {
             get() {
                 return _vm['_data'][key];
             },
