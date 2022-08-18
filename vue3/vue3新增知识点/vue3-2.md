@@ -1,5 +1,5 @@
 ```js
-important {toRaw} from 'vue';
+import {toRaw} from 'vue';
 
 import {reactive} from 'vue';
 export defautl {
@@ -59,7 +59,7 @@ let state = ref(obj.name)
 let state = toRef(obj, 'name')
 ```
 // 如果通过ref将对象的某一属性变成相应式数据，我们修改响应式数据不会影响原始数据  ref =>复制
-// 如果通过toRef将对象的某一属性变成响应式数据，我门修改数据会影响到原始数据，但是不会出发UI更新 toRef=>引用
+// 如果通过toRef将对象的某一属性变成响应式数据，我门修改数据会影响到原始数据，但是不会触发UI更新 toRef=>引用
 
 ref： 复制：修改相应式数据不会影响原始数据
 toRef： 引用：修改响应式数据会影响原始数据

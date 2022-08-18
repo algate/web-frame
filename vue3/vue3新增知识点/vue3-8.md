@@ -26,7 +26,7 @@ function reactive(obj) {
       }
     }
 
-  }else {
+  } else {
     console.error('is not object')
   }
   return net Proxy (obj, handler:{

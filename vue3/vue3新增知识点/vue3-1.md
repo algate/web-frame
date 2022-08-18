@@ -14,7 +14,7 @@ setup() {
 ```
 2.
 ref注意点：
-ref只能监听简单类型的变化。不能舰艇复杂类型的变化
+ref只能监听简单类型的变化。不能监听复杂类型的变化
 自动给ref值绑定为.value。但是双向绑定的时候不需要写.value
 ```js
 import {reactive} from "vue"
@@ -22,7 +22,7 @@ import {reactive} from "vue"
 let stats = reactive({
   lists: [
     {id: 1, name: vue3},
-    {id: 2  , name: vue2},
+    {id: 2, name: vue2},
   ]
 })
 return {stats}
@@ -41,10 +41,10 @@ function userStudent() {
   let state = reactive({
     student: [{
       id: 1,
-      name: vue3
+      name: 'vue3'
     },{
       id: 2,
-      name: vue2
+      name: 'vue2'
     }]
   })
   addStudent() {
@@ -57,7 +57,7 @@ function userStudent() {
 ```js
 import {isRef, isReactive} from 'vue'
 
-ref/reactive 是递归监听数据的 - 消耗性能
+`ref/reactive` 是递归监听数据的 - 消耗性能
 ```
 5. 
 非递归监听 {shallowRef, shallowReactive} 只能监听第一层的数据
@@ -120,7 +120,7 @@ state.value.b.c.c = 3;
 triggerRef(state);  此时就可以修改；
 ```
 只提供了triggerRef方法；
-如果是reactive类型的数据，是无法主动触法界面更新的；
+如果是reactive类型的数据，是无法主动触发界面更新的；
 
 应用场景： 数据量大，只修改局部数据的时候用非递归监听；
 否则使用递归监听就行了。

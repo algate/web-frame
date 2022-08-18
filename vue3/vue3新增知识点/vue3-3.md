@@ -11,7 +11,7 @@ function myRef(value) {
       },
       set(newValue) {
         value = newValue;
-        trigger(); // 告诉vue出发UI更新
+        trigger(); // 告诉vue触发UI更新
       }
     }
   })
